@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgbx4x006w404"]
+
+[ext_resource type="Script" uid="uid://bpwfg1ong7lqc" path="res://assets/CharacterMovement.gd" id="1_7cnuh"]
+[ext_resource type="Material" uid="uid://bfp5tymxxx6bj" path="res://assets/materials/red.tres" id="2_3mip4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fpxvr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_p8uxg"]
+
+[node name="PlayerController" type="CharacterBody3D"]
+script = ExtResource("1_7cnuh")
+slide_velocity = 25.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_fpxvr")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0.6, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.545855, 0)
+fov = 90.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_3mip4")
+mesh = SubResource("CapsuleMesh_p8uxg")
